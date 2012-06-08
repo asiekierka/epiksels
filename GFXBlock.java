@@ -1,11 +1,17 @@
 public class GFXBlock extends GFXObject {
 
-	private Block block;
-	private static final int width = 8;
-	private static final int height = 8;
+	protected Block block;
+	protected static final int width = 8;
+	protected static final int height = 8;
+	protected int zoom;
+
+	public GFXBlock(Block block, int zoom) {
+		this.block = block;
+		this.zoom = zoom;
+	}
 
 	public GFXBlock(Block block) {
-		this.block = block;
+		this(block,1);
 	}
 
 	public Block getBlock() {
@@ -18,8 +24,13 @@ public class GFXBlock extends GFXObject {
 		return height;
 	}
 
-	public void render(int x, int y, Renderer r)
-	{
-		// TODO
+	public int getChar() {
+		// TODO: Remember to make this an if-block once we add more block types.
+		return block.getChar();
+	}
+
+	public int getColor() {
+		// Same ^
+		return block.getColor();
 	}
 }

@@ -1,8 +1,8 @@
 public class FiniteMap extends Map {
-	private int w;
-	private int h;
+	protected int w;
+	protected int h;
 
-	private Block[] map;
+	protected Block[] map;
 
 	public FiniteMap(int xsize, int ysize) {
 		this.w=xsize;
@@ -10,8 +10,8 @@ public class FiniteMap extends Map {
 		map = new Block[xsize*ysize];
 	}
 
-	public int getPos(int x, int y) {
-		return (y*w)+x;
+	protected int getPos(int x, int y) {
+		return y*w+h;
 	}
 
 	public Block getBlock(int x, int y) {
