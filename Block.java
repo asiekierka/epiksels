@@ -11,12 +11,23 @@ public class Block {
 	protected Block() {
 	}
 
+	/**
+	 * Creates a dummy block.
+	 *
+	 * @return	a dummy block (air)
+	 */
 	public static Block createBlock() {
 		Block temp = new Block();
 		temp.id=0;
 		return temp;
 	}
 
+	/**
+	 * Creates a block based on Compressed data.
+	 *
+	 * @param	data	Compressed data of the block.
+	 * @return	a block with data based on the Compressed data.
+	 */
 	public static Block createBlock(byte[] data) {
 		int newId = 255&(byte)data[0];
 		assert(newId>=0 && newId<256);
