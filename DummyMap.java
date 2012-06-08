@@ -6,13 +6,13 @@ public class DummyMap extends Map {
 		assert(h>=0);
 		Block[] blocks = new Block[w*h];
 		for(int i=0;i<w*h;i++)
-			blocks[i]=new Block(0,0);
+			blocks[i]=Block.createBlock();
 		return blocks;
 	}
 
 	public Block getBlock(int x, int y)
 	{
-		return new Block(0,0);
+		return Block.createBlock();
 	}
 
 	public void setBlock(int x, int y, Block block)

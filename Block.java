@@ -1,34 +1,47 @@
+import java.lang.reflect.Constructor;
+
 public class Block {
 	private int id;
-	private int param;
-	private int chr;
-	private int col;
+	private static Block[] byId = new Block[256];
 
-	public Block(int id, int param, int chr, int col) {
-		this.id=id; this.param=param;
-		this.chr=chr; this.col=col;
+	static {
+		byId[0] = Block.createBlock();
 	}
-	public Block(int id, int chr, int col) {
-		this(id,0,chr,col);
+
+	protected Block() {
 	}
-	public Block(int id, int param) {
-		this(id,param,0,0);
+
+	public static Block createBlock() {
+		Block temp = new Block();
+		temp.id=0;
+		return temp;
 	}
-	public Block(int id) {
-		this(id,0,0,0);
+
+	public static Block createBlock(byte[] data) {
+		int newId = 255&(byte)data[0];
+		assert(newId>=0 && newId<256);
+		Block temp = null;
+		try {
+			temp = byId[newId].getClass().newInstance();
+		} catch(Exception e) {
+			System.out.println("[Block] Couldn't create block of ID " + newId + "! " + e.getMessage());
+			e.printStackTrace();
+		}
+		if(temp!=null) temp.setCompressed(data);
+		return temp;
 	}
 
 	public int getId() {
 		return id;
 	}
 	public int getParam() {
-		return param;
+		return 0;
 	}
 	public int getColor() {
-		return col;
+		return 0;
 	}
 	public int getChar() {
-		return chr;
+		return 0;
 	}
 
 	public boolean isSolid() {
@@ -39,16 +52,24 @@ public class Block {
 		this.id=id;
 	}
 	public void setParam(int param) {
-		this.param=param;
 	}
 	public void setColor(int col) {
-		this.col=col;
 	}
 	public void setChar(int chr) {
-		this.chr=chr;
 	}
 
-	public GFXBlock getRender() {
+	public byte[] getCompressed() {
+		byte[] tmp = new byte[1];
+		tmp[0]=(byte)id;
+		return tmp;
+	}
+
+	public void setCompressed(byte[] data) {
+		assert(data.length==1);
+		id=255&(byte)data[0];
+	}
+
+	public GFXBlock getGFX() {
 		return new GFXBlock(this);
 	}
 }
