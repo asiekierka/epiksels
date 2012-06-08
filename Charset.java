@@ -9,6 +9,14 @@ public class Charset {
 		return chars.length;
 	}
 
+	public int getWidth() {
+		return 8;
+	}
+
+	public int getHeight() {
+		return 8;
+	}
+
 	public boolean[] getBlockData(int id)
 	{
 		if(id>=0 && id<256)
