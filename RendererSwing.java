@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class RendererSwing extends Renderer {
@@ -22,6 +23,9 @@ public class RendererSwing extends Renderer {
 		// TODO
 	}
 
+	public void render() {
+		canvas.draw();
+	}
 	public void loadPalette(Palette palette) {
 		this.palette = palette;
 	}

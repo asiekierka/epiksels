@@ -11,4 +11,12 @@ public class RendererSwingCanvas extends JComponent {
 		setSize(d);
 		setPreferredSize(d);
 	}
+
+	public void draw() {
+		repaint();
+	}
+
+	protected void paintComponent(Graphics gfx) {
+		// TODO
+	}
 }
