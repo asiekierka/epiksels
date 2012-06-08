@@ -37,4 +37,8 @@ public class FileCharset extends Charset {
 	public FileCharset(String name, int size) {
 		this(name,size,8,8);
 	}
+
+	public FileCharset(String name) {
+		this(name,256);
+	}
 }

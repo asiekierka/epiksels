@@ -12,6 +12,7 @@ public class RendererSwing extends Renderer {
 
 	public RendererSwing(int width, int height) {
 		super(width,height);
+		canvas = new RendererSwingCanvas(this);
 		window = new JFrame("epiksels");
 		window.add(canvas);
 		window.pack();
@@ -24,7 +25,7 @@ public class RendererSwing extends Renderer {
 	}
 
 	public void render() {
-		canvas.draw();
+		canvas.draw(gfxList);
 	}
 	public void loadPalette(Palette palette) {
 		this.palette = palette;

@@ -1,9 +1,11 @@
 import java.awt.*;
 import java.awt.image.*;
+import java.util.List;
 import javax.swing.*;
 
 public class RendererSwingCanvas extends JComponent {
 	private RendererSwing r;
+	private List gfxList;
 
 	public RendererSwingCanvas(RendererSwing r) {
 		this.r=r;
@@ -12,7 +14,8 @@ public class RendererSwingCanvas extends JComponent {
 		setPreferredSize(d);
 	}
 
-	public void draw() {
+	public void draw(List list) {
+		this.gfxList = list;
 		repaint();
 	}
 
