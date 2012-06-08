@@ -44,7 +44,7 @@ public class Block {
 		return 0;
 	}
 
-	public boolean isSolid() {
+	public static boolean isSolid() {
 		return false;
 	}
 
