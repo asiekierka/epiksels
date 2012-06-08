@@ -13,18 +13,11 @@ public abstract class Renderer {
 		return h;
 	}
 
-	public abstract void startPaint();
-	public abstract void finishPaint();
-
 	public void stop() {
 	}
 
-	public abstract void drawRectangle(int x, int y, int width, int height, Color color);
-	public abstract void drawCircle(int x, int y, int radius, Color color);
-	public abstract void drawText(int x, int y, String text, Color color);
-	public abstract void drawText(int x, int y, String text, Color color, int zoom);
-	public abstract void drawChar(int x, int y, int chr, Color color);
-	public abstract void drawChar(int x, int y, int chr, Color color, int zoom);
+	//public abstract boolean registerHandler(RendererHandler handler);
+	// TODO
 
 	public abstract void loadCharset(Charset charset);
 	public abstract void loadPalette(Palette palette);

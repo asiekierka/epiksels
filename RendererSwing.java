@@ -29,13 +29,4 @@ public class RendererSwing extends Renderer {
 		this.charset = charset;
 		redrawCharset();
 	}
-
-	public void startPaint() {}
-	public void finishPaint() {}
-	public void drawRectangle(int x, int y, int width, int height, Color color) {}
-	public void drawCircle(int x, int y, int radius, Color color) {}
-	public void drawText(int x, int y, String text, Color color) {}
-	public void drawText(int x, int y, String text, Color color, int zoom) {}
-	public void drawChar(int x, int y, int chr, Color color) {}
-	public void drawChar(int x, int y, int chr, Color color, int zoom) {}
 }
